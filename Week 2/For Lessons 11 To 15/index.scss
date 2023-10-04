@@ -1,0 +1,134 @@
+//=========== Q_1 =========
+// @mixin arrow ($direction){
+//     content: "";
+//     position: absolute;
+//     border: 20px solid transparent;
+//     @if $direction == "top"{
+//         left: 50%;
+//         transform: translateX(-50%);
+//         top: -40px;
+//         border-bottom-color: red;
+//         -webkit-transform: translateX(-50%);
+//         -moz-transform: translateX(-50%);
+//         -ms-transform: translateX(-50%);
+//         -o-transform: translateX(-50%);
+//     }@else if $direction == "right"{
+//         top: 50%;
+//         transform: translateY(-50%);
+//         right: -40px;
+//         border-left-color: red;
+//     }@else if $direction == "bottom"{
+//         left: 50%;
+//         transform: translateX(-50%);
+//         bottom: -40px;
+//         border-top-color: red;
+//     }@else if $direction == "left"{
+//         top: 50%;
+//         transform: translateY(-50%);
+//         left: -40px;
+//         border-right-color: red;
+//     }
+// }
+// .element {
+//     &:before {
+//         @include arrow("top");
+//     }
+// }
+// .element {
+//     &:before {
+//         @include arrow("right");
+//     }
+// }
+// .element {
+//     &:before {
+//         @include arrow("bottom");
+//     }
+// }
+// .element {
+//     &:before {
+//         @include arrow("left");
+//     }
+// }
+
+//=========== Q_2 ==========
+
+// $columns: 16;
+// @for $i from 1 through $columns {
+//     .col-#{$i}{
+//         width: percentage($i / $columns);
+//     }
+// }
+
+//=========== Q_3 ==========
+
+// $names:
+// "books" 20px red 18,
+// "games" 30px green 18,
+// "dvds" 20px blue;
+// @each $class , $padding , $color , $size in $names {
+//         .#{$class}{
+//             padding: $padding;
+//             color: $color;
+//             font-size: #{if($size , 18px , 16px)}; 
+//         }
+//     }
+
+//=========== Q_4 ==========
+
+$init: 1;
+
+@while $init<= 5{
+    .cirle-#{$init * 100}{
+        width: #{$init * 100}px;
+        height: #{$init * 100}px;
+        border-radius: #{ ($init * 100) /2}px;
+    }
+    $init: $init + 1;
+    
+}
+
+//=========== Q_5 ==========
+@for $i from 1 through 5 {
+    .cirle-#{$init * 100}{
+        width: #{$init * 100}px;
+        height: #{$init * 100}px;
+        border-radius: #{ ($init * 100) /2}px;
+}
+    $init: $init + 1;
+    
+};
+
+//=========== Q_6 ==========
+
+// @mixin placeholder {
+//     &.placeholder{
+//         color: #777;
+//     }
+// }
+// .textarea{
+//     @include placeholder;
+// }
+
+//=========== Q_7 ==========
+@mixin flex-center($width...) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    $total: 0;
+
+    @each $x in $width {
+        $total: $total + $x;
+    }
+
+    width: $total; 
+    @if $total == 0 {
+        width: 400px;
+    }
+}
+
+.box-one {
+    @include flex-center(400px);
+}
+.box-two {
+    @include flex-center;
+}

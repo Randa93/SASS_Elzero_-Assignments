@@ -1,0 +1,81 @@
+//===========Q_1===========
+
+// $main: "school";
+// $child: "box";
+// $language: "en"; // English
+// $gap: 20px;
+
+// .#{$main}{
+//     padding: #{$gap};
+//     @if $language == "en" {
+//         direction: ltr;
+//     } @else{
+//         direction: rtl;
+//     }
+//     margin-left: #{$gap};
+// } 
+// .#{$main}{
+//     .#{$main}-#{$child}{
+//         padding: #{$gap / 2};
+//     }
+// }
+// .#{$main}:hover{
+//     .#{$main}-#{$child}{
+//         background-color: #eee;
+//     }
+// }
+
+//===========Q_2===========
+// SASS Code
+// $main-color: red;
+// $alt-color: blue;
+
+// Needed Output
+/* Theme Version: 1.0 */
+/* Website Theme Main Color Is: #{$main-color} */
+/* Website Theme Alternate Color Is: #{$alt-color} */
+
+
+//===========Q_3===========
+
+// $number: 10;
+// $number: 8;
+// $number: 5;
+// @if $number > 8 {
+//     .class{
+//         color: blue;
+//     }
+// }@else if $number > 5{
+//     .class{
+//         color: green;
+//     }
+// }@else{
+//     .class{
+//         color: red;
+//     }
+// }
+
+//===========Q_4===========
+
+// $number: 10; 
+// $color: red;
+// $theme: light;
+
+// @if $number > 5 and $color == "red" and not $theme == "dark" {
+//     .class {
+//         color: red;
+//     }
+// }
+
+//===========Q_5===========
+
+$number: 10;
+.box{
+    @if $number == 10 {
+        background-color: #eee;
+        text-align: center;
+    }@else if $number == 9 {
+        background-color: #eee;
+    }
+}
+

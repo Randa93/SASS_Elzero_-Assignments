@@ -1,0 +1,29 @@
+//============ Q_1 ===========
+$num: 2;
+$start: 100;
+
+@function double($size) {
+  @return $size * $num;
+}
+
+@for $i from 1 to 6 {
+    .box-#{$start}{
+        width: #{$start + px};
+        height: #{double($start) + px};
+    }
+    $start: $start * 2;
+}
+
+//============ Q_2 ===========
+
+@function get_total($sizes...){
+    $total:0;
+    @each $i in $sizes {
+        $total: $i + $total;
+    }
+    @return $total;
+}
+.box {
+    top: get-total(100, 50, 20);
+    right: get-total(100, 50);
+}
